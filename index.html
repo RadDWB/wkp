@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Wiener Koordinationsparcours nach Warwitz: Originalaufbau, Durchführung, Stationen, Geschichte und wissenschaftliche Einordnung." />
-  <title>Wiener Koordinationsparcours nach Warwitz</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Wiener Koordinationsparcours nach Warwitz: Originalaufbau, Durchführung, Video, historische Originalnormwerte und wissenschaftliche Einordnung." name="description"/>
+<title>Wiener Koordinationsparcours nach Warwitz</title>
+<style>
     :root{
       --bg:#eef3f9;
       --surface:#ffffff;
@@ -128,162 +129,345 @@
       .figure-card,.card,details.station,.fact{box-shadow:none;break-inside:avoid}
       details.station .station-body{display:block}
     }
-  </style>
+  
+    .original-note{margin-top:18px;background:linear-gradient(135deg,#e8f2ff,#f7fbff);border:1px solid #a9ccf7;border-radius:17px;padding:18px 20px;display:flex;align-items:center;gap:14px;color:var(--text)}
+    .original-note-icon{width:38px;height:38px;border-radius:12px;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900;flex:0 0 auto}
+    .original-note strong{display:block;color:var(--blue);font-size:18px}
+    .original-note span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+    .original-note a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+    .norm-alert{display:flex;gap:14px;align-items:flex-start;background:#fff8e7;border:1px solid #e9cf80;border-radius:17px;padding:18px 20px;margin:22px 0}
+    .norm-alert-icon{width:38px;height:38px;border-radius:12px;background:#f0b429;color:#2d2307;display:grid;place-items:center;font-weight:950;flex:0 0 auto}
+    .norm-alert strong{display:block;color:#352806;font-size:17px}
+    .norm-alert span{display:block;color:#6b571f;font-size:14px;margin-top:4px}
+    .norm-meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+    .norm-meta{background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:18px;display:flex;flex-direction:column;gap:4px}
+    .norm-meta small{text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;font-size:11px}
+    .norm-meta strong{font-size:17px;line-height:1.3}
+    .norm-meta span{font-size:13px;color:var(--muted)}
+    .norm-tabs{display:flex;gap:8px;padding:6px;background:#e5edf7;border-radius:14px;width:max-content;max-width:100%;margin-bottom:14px}
+    .norm-tab{border:0;background:transparent;color:var(--muted);padding:10px 18px;border-radius:10px;font-weight:800;cursor:pointer}
+    .norm-tab.active{background:var(--surface);color:var(--blue);box-shadow:0 4px 12px rgba(15,29,51,.08)}
+    .norm-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .norm-panel[hidden]{display:none}
+    .table-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:14px}
+    .table-title-row h3{margin:0 0 3px;font-size:21px}
+    .table-title-row p{margin:0;color:var(--muted);font-size:13px}
+    .mean-badge{background:var(--blue-2);color:var(--blue);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800;white-space:nowrap}
+    .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:14px;scrollbar-width:thin}
+    .table-scroll:focus{outline:3px solid rgba(8,105,220,.2);outline-offset:2px}
+    .norm-table{width:100%;min-width:660px;border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums}
+    .norm-table th,.norm-table td{padding:9px 14px;text-align:center;border-bottom:1px solid #e6edf5;border-right:1px solid #e6edf5}
+    .norm-table thead th{position:sticky;top:0;background:#15375f;color:white;font-size:13px;line-height:1.25;z-index:2}
+    .norm-table thead th span{font-weight:550;color:#cfdef0;font-size:11px}
+    .norm-table tbody th{position:sticky;left:0;background:#f3f7fc;color:var(--text);font-weight:850;z-index:1}
+    .norm-table tbody tr:nth-child(even) td{background:#f8fbff}
+    .norm-table tbody tr:hover td,.norm-table tbody tr:hover th{background:#eaf3ff}
+    .norm-table th:last-child,.norm-table td:last-child{border-right:0}
+    .norm-table tbody tr:last-child th,.norm-table tbody tr:last-child td{border-bottom:0}
+    .classification-card{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+    .classification-card h3{margin:0;font-size:20px}
+    .classification-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}
+    .classification-grid span{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:11px;text-align:center;font-size:12px;color:var(--muted)}
+    .classification-grid b{display:block;color:var(--text);font-size:15px}
+    .norm-source{font-size:12px;color:var(--muted);margin:14px 2px 0}
+    .footer-logo{display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px}
+    .footer-logo svg{width:62px;height:42px;display:block}
+    .footer-version{display:inline-block;margin-top:10px;padding:4px 10px;border-radius:999px;background:var(--blue-2);color:var(--blue);font-weight:800;font-size:11px}
+    @media (max-width:900px){
+      .topbar-inner{align-items:flex-start;gap:12px;flex-wrap:wrap}
+      nav{width:100%;overflow-x:auto;white-space:nowrap;padding-bottom:4px;gap:20px;scrollbar-width:none}
+      nav::-webkit-scrollbar{display:none}
+      .norm-meta-grid{grid-template-columns:1fr 1fr}
+      .classification-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:700px){
+      .topbar-inner{padding:10px 14px}
+      .brand{font-size:13px;min-width:0}
+      .brand-mark{width:25px;height:25px;font-size:10px}
+      nav{display:flex;font-size:13px}
+      .hero{padding:46px 16px 38px}
+      main{padding-left:14px;padding-right:14px}
+      .norm-meta-grid{grid-template-columns:1fr}
+      .norm-panel{padding:12px;border-radius:17px}
+      .table-title-row{flex-direction:column;gap:10px}
+      .mean-badge{white-space:normal}
+      .norm-tabs{width:100%}
+      .norm-tab{flex:1}
+      .classification-grid{grid-template-columns:1fr 1fr}
+      .norm-alert,.original-note{padding:15px;align-items:flex-start}
+      .lightbox,.modal{padding:10px}
+      .modal-panel{padding:22px 18px}
+    }
+    @media (max-width:420px){
+      h1{font-size:38px}
+      .facts{grid-template-columns:1fr}
+      .classification-grid{grid-template-columns:1fr}
+      .norm-table{min-width:600px}
+    }
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#top"><span class="brand-mark">WKP</span><span>Wiener Koordinationsparcours <b>nach Warwitz</b></span></a>
-      <nav aria-label="Seitennavigation">
-        <a href="#grafik">Grafik</a>
-        <a href="#stationen">Stationen</a>
-        <a href="#video">Video</a>
-        <a href="#einordnung">Einordnung</a>
-      </nav>
-    </div>
-  </header>
+<header class="topbar">
+<div class="topbar-inner">
+<a class="brand" href="#top"><span class="brand-mark">WKP</span><span>Wiener Koordinationsparcours <b>nach Warwitz</b></span></a>
+<nav aria-label="Seitennavigation">
+<a href="#grafik">Grafik</a>
+<a href="#stationen">Stationen</a>
+<a href="#normwerte">Normwerte</a><a href="#video">Video</a>
+<a href="#einordnung">Einordnung</a>
+</nav>
+</div>
+</header>
+<section class="hero" id="top">
+<div class="eyebrow">Koordination · Sportprüfung</div>
+<h1>Wiener Koordinationsparcours <span>nach Warwitz</span></h1>
+<p>Originalaufbau, Durchführung und wissenschaftliche Einordnung des komplexen Koordinationstests für den Sportunterricht.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#grafik">Aufbau ansehen</a>
+<button class="btn btn-secondary" data-open-modal="">Historie &amp; Wissenschaft</button>
+</div>
+</section>
+<main>
+<section class="section" id="grafik">
+<div class="section-kicker">Lernmaterial</div>
+<h2>WKP-Originalaufbau auf einen Blick</h2>
+<p class="lead">Die Zeitgrenzen gelten ausschließlich für diesen Aufbau. Antippen oder anklicken, um die Grafik in einer Lightbox zu vergrößern.</p>
+<div class="figure-card">
+<button aria-label="Grafik vergrößern" class="figure-button" data-lightbox="">
+<img alt="Schematischer Originalaufbau des Wiener Koordinationsparcours nach Warwitz mit acht Stationen" src="wkp-originalaufbau-warwitz.png"/>
+</button>
+<div class="figure-caption">
+<span><strong>WKP-Originalaufbau nach Warwitz</strong> · verbindlich für die dargestellten Zeitgrenzen</span>
+<span>Antippen zum Vergrößern</span>
+</div>
+</div>
+<div aria-label="Rahmendaten" class="facts">
+<div class="fact"><small>Gesamtlänge</small><strong>ca. 35 m</strong></div>
+<div class="fact"><small>Medizinball</small><strong>2 kg</strong></div>
+<div class="fact"><small>Zeitmessung</small><strong>ganze Sekunden</strong></div>
+<div class="fact"><small>Versuche</small><strong>2 · besserer zählt</strong></div>
+</div>
+<div aria-label="Hinweis zu den historischen Originalnormwerten" class="original-note" role="note"><div class="original-note-icon">W</div><div><strong>Historische Originalnormwerte verfügbar</strong><span>Die unveränderten Prozentrangwerte nach Warwitz sind im Reiter <a href="#normwerte">Normwerte</a> dokumentiert. Eine Übertragung auf Abitur- oder Notenpunkte erfolgt hier ausdrücklich nicht.</span></div></div>
+</section>
+<section class="section" id="stationen">
+<div class="section-kicker">Durchführung</div>
+<h2>Die acht Stationen</h2>
+<p class="lead">Die Aufgaben werden in der vorgegebenen Reihenfolge absolviert. Fehler müssen grundsätzlich sofort korrigiert beziehungsweise die betroffene Teilaufgabe wiederholt werden.</p>
+<div class="station-grid">
+<details class="station"><summary><span class="num">1</span>Rolle rückwärts – Rolle vorwärts<span class="chev">⌄</span></summary><div class="station-body">Ausführung auf Bodenmatten. Die Abfolge beginnt mit einer Rolle rückwärts und wird unmittelbar mit einer Rolle vorwärts fortgesetzt.</div></details>
+<details class="station"><summary><span class="num">2</span>360°-Drehung<span class="chev">⌄</span></summary><div class="station-body">Drehung um die Körperlängsachse. Die Bewegung muss kontrolliert und ohne Unterbrechung ausgeführt werden.</div></details>
+<details class="station"><summary><span class="num">3</span>Balancieren über die Langbank<span class="chev">⌄</span></summary><div class="station-body">Balancieren über die umgedrehte Langbank bis zur markierten Strecke von 3 m.</div></details>
+<details class="station"><summary><span class="num">4</span>Achterlauf<span class="chev">⌄</span></summary><div class="station-body">Zwei Ständer sind durch ein Gummiseil verbunden. Seilhöhe 0,75 m, Ständerabstand jeweils 2 m. Das Seil wird einmal unterlaufen und einmal übersprungen.</div></details>
+<details class="station"><summary><span class="num">5</span>Slalomrollen<span class="chev">⌄</span></summary><div class="station-body">Ein 2-kg-Medizinball wird um fünf Kegel im Abstand von ungefähr 1 m gerollt und anschließend wieder im Gymnastikring deponiert.</div></details>
+<details class="station"><summary><span class="num">6</span>Kreuzsprungkombination<span class="chev">⌄</span></summary><div class="station-body">Neun Sprünge werden entsprechend dem Kästchenmuster kreuzweise ausgeführt. Start an Position 0, Abschluss beidbeinig an Position 9/10.</div></details>
+<details class="station"><summary><span class="num">7</span>Karreehüpfen<span class="chev">⌄</span></summary><div class="station-body">Ein Quadrat von 0,40 m wird einbeinig in der Reihenfolge vor, zurück, rechts, links und vor übersprungen. Insgesamt fünf Sprünge.</div></details>
+<details class="station"><summary><span class="num">8</span>Hindernisklettern<span class="chev">⌄</span></summary><div class="station-body">Der vordere Holm des quergestellten Barrens wird in 1,40 m Höhe untertaucht, der hintere Holm in 1,80 m Höhe überklettert. Der Niedersprung markiert das Stoppzeichen.</div></details>
+</div>
+</section>
 
-  <section class="hero" id="top">
-    <div class="eyebrow">Koordination · Sportprüfung</div>
-    <h1>Wiener Koordinationsparcours <span>nach Warwitz</span></h1>
-    <p>Originalaufbau, Durchführung und wissenschaftliche Einordnung des komplexen Koordinationstests für den Sportunterricht.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#grafik">Aufbau ansehen</a>
-      <button class="btn btn-secondary" data-open-modal>Historie & Wissenschaft</button>
-    </div>
-  </section>
-
-  <main>
-    <section class="section" id="grafik">
-      <div class="section-kicker">Lernmaterial</div>
-      <h2>WKP-Originalaufbau auf einen Blick</h2>
-      <p class="lead">Die Zeitgrenzen gelten ausschließlich für diesen Aufbau. Antippen oder anklicken, um die Grafik in einer Lightbox zu vergrößern.</p>
-
-      <div class="figure-card">
-        <button class="figure-button" data-lightbox aria-label="Grafik vergrößern">
-          <img src="wkp-originalaufbau-warwitz.png" alt="Schematischer Originalaufbau des Wiener Koordinationsparcours nach Warwitz mit acht Stationen" />
-        </button>
-        <div class="figure-caption">
-          <span><strong>WKP-Originalaufbau nach Warwitz</strong> · verbindlich für die dargestellten Zeitgrenzen</span>
-          <span>Antippen zum Vergrößern</span>
-        </div>
-      </div>
-
-      <div class="facts" aria-label="Rahmendaten">
-        <div class="fact"><small>Gesamtlänge</small><strong>ca. 35 m</strong></div>
-        <div class="fact"><small>Medizinball</small><strong>2 kg</strong></div>
-        <div class="fact"><small>Zeitmessung</small><strong>ganze Sekunden</strong></div>
-        <div class="fact"><small>Versuche</small><strong>2 · besserer zählt</strong></div>
-      </div>
-
-      <div class="coming-soon" role="note" aria-label="Hinweis zu den Normwerttabellen">
-        <div class="coming-soon-icon">N</div>
-        <div><strong>Normwerttabellen folgen</strong><span>Die alters- und geschlechtsspezifischen Bewertungstabellen werden nach Abschluss der fachlichen Abstimmung ergänzt.</span></div>
-      </div>
-    </section>
-
-    <section class="section" id="stationen">
-      <div class="section-kicker">Durchführung</div>
-      <h2>Die acht Stationen</h2>
-      <p class="lead">Die Aufgaben werden in der vorgegebenen Reihenfolge absolviert. Fehler müssen grundsätzlich sofort korrigiert beziehungsweise die betroffene Teilaufgabe wiederholt werden.</p>
-
-      <div class="station-grid">
-        <details class="station"><summary><span class="num">1</span>Rolle rückwärts – Rolle vorwärts<span class="chev">⌄</span></summary><div class="station-body">Ausführung auf Bodenmatten. Die Abfolge beginnt mit einer Rolle rückwärts und wird unmittelbar mit einer Rolle vorwärts fortgesetzt.</div></details>
-        <details class="station"><summary><span class="num">2</span>360°-Drehung<span class="chev">⌄</span></summary><div class="station-body">Drehung um die Körperlängsachse. Die Bewegung muss kontrolliert und ohne Unterbrechung ausgeführt werden.</div></details>
-        <details class="station"><summary><span class="num">3</span>Balancieren über die Langbank<span class="chev">⌄</span></summary><div class="station-body">Balancieren über die umgedrehte Langbank bis zur markierten Strecke von 3 m.</div></details>
-        <details class="station"><summary><span class="num">4</span>Achterlauf<span class="chev">⌄</span></summary><div class="station-body">Zwei Ständer sind durch ein Gummiseil verbunden. Seilhöhe 0,75 m, Ständerabstand jeweils 2 m. Das Seil wird einmal unterlaufen und einmal übersprungen.</div></details>
-        <details class="station"><summary><span class="num">5</span>Slalomrollen<span class="chev">⌄</span></summary><div class="station-body">Ein 2-kg-Medizinball wird um fünf Kegel im Abstand von ungefähr 1 m gerollt und anschließend wieder im Gymnastikring deponiert.</div></details>
-        <details class="station"><summary><span class="num">6</span>Kreuzsprungkombination<span class="chev">⌄</span></summary><div class="station-body">Neun Sprünge werden entsprechend dem Kästchenmuster kreuzweise ausgeführt. Start an Position 0, Abschluss beidbeinig an Position 9/10.</div></details>
-        <details class="station"><summary><span class="num">7</span>Karreehüpfen<span class="chev">⌄</span></summary><div class="station-body">Ein Quadrat von 0,40 m wird einbeinig in der Reihenfolge vor, zurück, rechts, links und vor übersprungen. Insgesamt fünf Sprünge.</div></details>
-        <details class="station"><summary><span class="num">8</span>Hindernisklettern<span class="chev">⌄</span></summary><div class="station-body">Der vordere Holm des quergestellten Barrens wird in 1,40 m Höhe untertaucht, der hintere Holm in 1,80 m Höhe überklettert. Der Niedersprung markiert das Stoppzeichen.</div></details>
-      </div>
-    </section>
-
-
-    <section class="section" id="video">
-      <div class="section-kicker">Bewegungsdemonstration</div>
-      <h2>Der Parcours im Video</h2>
-      <p class="lead">Die Aufnahme zeigt den Ablauf des Wiener Koordinationsparcours in Bewegung und unterstützt das Verständnis der einzelnen Aufgabenfolgen.</p>
-
-      <div class="video-card">
-        <div class="video-wrap">
-          <video controls preload="metadata" playsinline aria-label="Video zum Wiener Koordinationsparcours">
-            <source src="wiener-koordinationsparcours-video.mp4" type="video/mp4" />
+<section class="section" id="normwerte">
+<div class="section-kicker">Historische Referenz</div>
+<h2>Originale Normwerte nach Warwitz</h2>
+<p class="lead">Die folgenden Tabellen geben die von Siegbert Warwitz veröffentlichten <strong>ursprünglichen Prozentrangwerte unverändert</strong> wieder. Sie sind historische Normwerte zum Originalaufbau des WKP. Es handelt sich <strong>nicht</strong> um Abiturnormen, Notenpunkte oder aktuell freigegebene Bewertungsvorgaben.</p>
+<div class="norm-alert" role="note">
+<div class="norm-alert-icon">!</div>
+<div><strong>Originalwerte – keine aktuelle amtliche Bewertungstabelle</strong><span>Ein Prozentrang von 90 bedeutet: Rund 90 % der jeweiligen historischen Vergleichsgruppe erzielten eine längere Zeit; rund 10 % waren gleich schnell oder schneller. Zwischenwerte werden nicht interpoliert.</span></div>
+</div>
+<div class="norm-meta-grid">
+<article class="norm-meta"><small>Quelle</small><strong>Warwitz, 1982</strong><span>„Normentafeln zum Wiener Koordinationsparcours“</span></article>
+<article class="norm-meta"><small>Ausgewiesene Schülergruppen</small><strong>17,0–17,11 und 18,0–21,11 Jahre</strong><span>Sportstudierende separat</span></article>
+<article class="norm-meta"><small>Darstellung</small><strong>Testzeit → Prozentrang</strong><span>Messung in ganzen Sekunden</span></article>
+</div>
+<div aria-label="Normwerttabellen nach Geschlecht" class="norm-tabs" role="tablist">
+<button aria-controls="panel-m" aria-selected="true" class="norm-tab active" data-norm-tab="panel-m" id="tab-m" role="tab">Männlich</button>
+<button aria-controls="panel-w" aria-selected="false" class="norm-tab" data-norm-tab="panel-w" id="tab-w" role="tab">Weiblich</button>
+</div>
+<div aria-labelledby="tab-m" class="norm-panel active" id="panel-m" role="tabpanel">
+<div class="table-title-row"><div><h3>Männliche Schüler und Sportstudierende</h3><p>N = 492 (17 Jahre) · N = 497 (18–21 Jahre) · N = 100 (Sportstudierende)</p></div><span class="mean-badge">Mittelwerte: 43 s · 42 s · 35 s</span></div>
+<div aria-label="Horizontal scrollbar: originale männliche Normwerte" class="table-scroll" tabindex="0">
+<table class="norm-table">
+<thead><tr><th scope="col">Testzeit<br/><span>Sekunden</span></th><th scope="col">Schüler<br/><span>17,0–17,11</span></th><th scope="col">Schüler<br/><span>18,0–21,11</span></th><th scope="col">Sportstudierende<br/><span>männlich</span></th></tr></thead>
+<tbody><tr><th scope="row">26</th><td></td><td></td><td>100</td></tr>
+<tr><th scope="row">27</th><td>100</td><td>100</td><td>99</td></tr>
+<tr><th scope="row">28</th><td>99</td><td>99</td><td>99</td></tr>
+<tr><th scope="row">29</th><td>99</td><td>99</td><td>99</td></tr>
+<tr><th scope="row">30</th><td>99</td><td>99</td><td>97</td></tr>
+<tr><th scope="row">31</th><td>99</td><td>96</td><td>93</td></tr>
+<tr><th scope="row">32</th><td>98</td><td>93</td><td>86</td></tr>
+<tr><th scope="row">33</th><td>94</td><td>90</td><td>76</td></tr>
+<tr><th scope="row">34</th><td>90</td><td>88</td><td>64</td></tr>
+<tr><th scope="row">35</th><td>87</td><td>86</td><td>52</td></tr>
+<tr><th scope="row">36</th><td>85</td><td>82</td><td>43</td></tr>
+<tr><th scope="row">37</th><td>81</td><td>78</td><td>34</td></tr>
+<tr><th scope="row">38</th><td>75</td><td>73</td><td>26</td></tr>
+<tr><th scope="row">39</th><td>70</td><td>68</td><td>19</td></tr>
+<tr><th scope="row">40</th><td>64</td><td>61</td><td>16</td></tr>
+<tr><th scope="row">41</th><td>58</td><td>55</td><td>13</td></tr>
+<tr><th scope="row">42</th><td>51</td><td>50</td><td>10</td></tr>
+<tr><th scope="row">43</th><td>48</td><td>46</td><td>7</td></tr>
+<tr><th scope="row">44</th><td>44</td><td>40</td><td>4</td></tr>
+<tr><th scope="row">45</th><td>38</td><td>34</td><td>2</td></tr>
+<tr><th scope="row">46</th><td>32</td><td>29</td><td>2</td></tr>
+<tr><th scope="row">47</th><td>27</td><td>26</td><td>2</td></tr>
+<tr><th scope="row">48</th><td>23</td><td>21</td><td>1</td></tr>
+<tr><th scope="row">49</th><td>19</td><td>16</td><td>1</td></tr>
+<tr><th scope="row">50</th><td>16</td><td>13</td><td>1</td></tr>
+<tr><th scope="row">51</th><td>12</td><td>8</td><td>1</td></tr>
+<tr><th scope="row">52</th><td>9</td><td>6</td><td>0</td></tr>
+<tr><th scope="row">53</th><td>8</td><td>4</td><td></td></tr>
+<tr><th scope="row">54</th><td>5</td><td>3</td><td></td></tr>
+<tr><th scope="row">55</th><td>3</td><td>2</td><td></td></tr>
+<tr><th scope="row">56</th><td>2</td><td>2</td><td></td></tr>
+<tr><th scope="row">57</th><td>2</td><td>2</td><td></td></tr>
+<tr><th scope="row">58</th><td>2</td><td>2</td><td></td></tr>
+<tr><th scope="row">59</th><td>2</td><td>2</td><td></td></tr>
+<tr><th scope="row">60</th><td>2</td><td>2</td><td></td></tr>
+<tr><th scope="row">61</th><td>2</td><td>2</td><td></td></tr>
+<tr><th scope="row">62</th><td>1</td><td>1</td><td></td></tr>
+<tr><th scope="row">63</th><td>1</td><td>1</td><td></td></tr>
+<tr><th scope="row">64</th><td>1</td><td>1</td><td></td></tr>
+<tr><th scope="row">65</th><td>1</td><td>0</td><td></td></tr>
+<tr><th scope="row">66</th><td>1</td><td></td><td></td></tr>
+<tr><th scope="row">67</th><td>0</td><td></td><td></td></tr></tbody>
+</table>
+</div>
+</div>
+<div aria-labelledby="tab-w" class="norm-panel" hidden="" id="panel-w" role="tabpanel">
+<div class="table-title-row"><div><h3>Weibliche Schülerinnen und Sportstudierende</h3><p>N = 120 (17 Jahre) · N = 101 (18–21 Jahre) · N = 113 (Sportstudierende)</p></div><span class="mean-badge">Mittelwerte: 46 s · 45 s · 38 s</span></div>
+<div aria-label="Horizontal scrollbar: originale weibliche Normwerte" class="table-scroll" tabindex="0">
+<table class="norm-table">
+<thead><tr><th scope="col">Testzeit<br/><span>Sekunden</span></th><th scope="col">Schülerinnen<br/><span>17,0–17,11</span></th><th scope="col">Schülerinnen<br/><span>18,0–21,11</span></th><th scope="col">Sportstudierende<br/><span>weiblich</span></th></tr></thead>
+<tbody><tr><th scope="row">29</th><td></td><td>100</td><td>100</td></tr>
+<tr><th scope="row">30</th><td>100</td><td>99</td><td>99</td></tr>
+<tr><th scope="row">31</th><td>99</td><td>99</td><td>99</td></tr>
+<tr><th scope="row">32</th><td>99</td><td>99</td><td>97</td></tr>
+<tr><th scope="row">33</th><td>99</td><td>99</td><td>94</td></tr>
+<tr><th scope="row">34</th><td>99</td><td>99</td><td>90</td></tr>
+<tr><th scope="row">35</th><td>99</td><td>98</td><td>85</td></tr>
+<tr><th scope="row">36</th><td>97</td><td>97</td><td>77</td></tr>
+<tr><th scope="row">37</th><td>95</td><td>94</td><td>64</td></tr>
+<tr><th scope="row">38</th><td>94</td><td>90</td><td>52</td></tr>
+<tr><th scope="row">39</th><td>92</td><td>87</td><td>41</td></tr>
+<tr><th scope="row">40</th><td>89</td><td>85</td><td>32</td></tr>
+<tr><th scope="row">41</th><td>83</td><td>81</td><td>26</td></tr>
+<tr><th scope="row">42</th><td>74</td><td>75</td><td>20</td></tr>
+<tr><th scope="row">43</th><td>62</td><td>70</td><td>16</td></tr>
+<tr><th scope="row">44</th><td>53</td><td>62</td><td>13</td></tr>
+<tr><th scope="row">45</th><td>50</td><td>51</td><td>9</td></tr>
+<tr><th scope="row">46</th><td>49</td><td>47</td><td>6</td></tr>
+<tr><th scope="row">47</th><td>41</td><td>41</td><td>4</td></tr>
+<tr><th scope="row">48</th><td>35</td><td>36</td><td>3</td></tr>
+<tr><th scope="row">49</th><td>30</td><td>31</td><td>2</td></tr>
+<tr><th scope="row">50</th><td>24</td><td>27</td><td>2</td></tr>
+<tr><th scope="row">51</th><td>20</td><td>22</td><td>2</td></tr>
+<tr><th scope="row">52</th><td>17</td><td>17</td><td>1</td></tr>
+<tr><th scope="row">53</th><td>15</td><td>13</td><td>1</td></tr>
+<tr><th scope="row">54</th><td>13</td><td>10</td><td>0</td></tr>
+<tr><th scope="row">55</th><td>12</td><td>8</td><td></td></tr>
+<tr><th scope="row">56</th><td>11</td><td>6</td><td></td></tr>
+<tr><th scope="row">57</th><td>10</td><td>5</td><td></td></tr>
+<tr><th scope="row">58</th><td>8</td><td>4</td><td></td></tr>
+<tr><th scope="row">59</th><td>6</td><td>3</td><td></td></tr>
+<tr><th scope="row">60</th><td>3</td><td>2</td><td></td></tr>
+<tr><th scope="row">61</th><td>2</td><td>2</td><td></td></tr>
+<tr><th scope="row">62</th><td>2</td><td>2</td><td></td></tr>
+<tr><th scope="row">63</th><td>1</td><td>1</td><td></td></tr>
+<tr><th scope="row">64</th><td>1</td><td>1</td><td></td></tr>
+<tr><th scope="row">65</th><td>1</td><td>1</td><td></td></tr>
+<tr><th scope="row">66</th><td>0</td><td>0</td><td></td></tr></tbody>
+</table>
+</div>
+</div>
+<div class="classification-card">
+<div><div class="section-kicker">Originale Klassifikation</div><h3>Einordnung der Prozentränge bei Warwitz</h3></div>
+<div class="classification-grid">
+<span><b>99–100</b> hervorragend</span><span><b>85–98</b> gut</span><span><b>17–84</b> durchschnittlich</span><span><b>3–16</b> eingeschränkt</span><span><b>0–2</b> schwach</span>
+</div>
+</div>
+<p class="norm-source">Quelle: Siegbert Warwitz, „Normentafeln zum Wiener Koordinationsparcours (WKP)“, <em>Lehrhilfen für den Sportunterricht</em>, Folge 4/1982, S. 61–63. Übertragen aus den gedruckten Originaltafeln; typografisch modernisiert, Werte inhaltlich unverändert.</p>
+</section>
+<section class="section" id="video">
+<div class="section-kicker">Bewegungsdemonstration</div>
+<h2>Der Parcours im Video</h2>
+<p class="lead">Die Aufnahme zeigt den Ablauf des Wiener Koordinationsparcours in Bewegung und unterstützt das Verständnis der einzelnen Aufgabenfolgen.</p>
+<div class="video-card">
+<div class="video-wrap">
+<video aria-label="Video zum Wiener Koordinationsparcours" controls="" playsinline="" preload="metadata">
+<source src="wiener-koordinationsparcours-video.mp4" type="video/mp4"/>
             Ihr Browser unterstützt die Videowiedergabe nicht.
           </video>
-        </div>
-        <div class="video-meta">
-          <p><strong>Wiener Koordinationsparcours</strong><br />Demonstrationsvideo zur Ausführung und Reihenfolge der Stationen.</p>
-          <div class="video-source">Quelle: Institut für Sportwissenschaft, Universität Bern · <a href="https://www.ispw.unibe.ch/studium/eignungstest/video_wiener_koordinationsparcours/index_ger.html" target="_blank" rel="noopener noreferrer">Originalseite aufrufen</a></div>
-        </div>
-      </div>
-      <div class="video-note"><strong>Hinweis zur Verwendung:</strong> Das Video dient der Veranschaulichung des Bewegungsablaufs. Für Prüfung, Aufbau und spätere Normwerttabellen sind ausschließlich die auf dieser Seite ausgewiesenen Maße, Reihenfolgen und Durchführungsbestimmungen des Warwitz-Originalaufbaus verbindlich.</div>
-    </section>
-
-    <section class="section" id="einordnung">
-      <div class="section-kicker">Fachliche Einordnung</div>
-      <h2>Was prüft der WKP?</h2>
-      <div class="grid-3">
-        <article class="card"><h3>Komplexe Koordination</h3><p>Der Parcours verbindet Gleichgewicht, Orientierung, Rhythmisierung, Umstellung, Differenzierung und Reaktionsanforderungen in wechselnden Bewegungsaufgaben.</p></article>
-        <article class="card"><h3>Handeln unter Zeitdruck</h3><p>Die Zeitmessung erhöht den Anforderungsdruck. Bewertet wird nicht nur das korrekte Lösen, sondern die sichere und zügige Bewältigung der gesamten Bewegungsfolge.</p></article>
-        <article class="card"><h3>Vielseitige Bewegungserfahrung</h3><p>Rollen, Drehen, Balancieren, Springen, Slalomrollen und Klettern verlangen eine schnelle Anpassung an unterschiedliche Geräte und Bewegungsrichtungen.</p></article>
-      </div>
-    </section>
-
-    <section class="section evidence">
-      <div class="evidence-box">
-        <div class="section-kicker" style="color:#8fc0ff">Wissenschaftliche Absicherung</div>
-        <h3>Für einen schulischen Koordinationstest gut dokumentiert</h3>
-        <p>Warwitz berichtet über eine große Normierungsstichprobe und mehrere Gütekriterien. Die Befunde sprechen für eine brauchbare Zuverlässigkeit und eine sinnvolle inhaltliche Validierung des Tests.</p>
-        <div class="metrics">
-          <div class="metric"><strong>N = 3.462</strong><span>veröffentlichte Normstichprobe</span></div>
-          <div class="metric"><strong>r = .87–.93</strong><span>Retest-Reliabilität</span></div>
-          <div class="metric"><strong>r = .85–.89</strong><span>Split-Half-Reliabilität</span></div>
-          <div class="metric"><strong>r = .62–.79</strong><span>Zusammenhang mit Lehrerurteilen</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Methodische Grenze</h3>
-        <p>Der WKP ist ein komplexer Leistungstest. Die gemessene Zeit hängt auch von Übungserfahrung, Gerätevertrautheit, Beweglichkeit und Schnelligkeit ab. Eine reine „Koordinationsnote“ ist daher eine Vereinfachung.</p>
-        <div class="notice" style="margin-top:18px"><strong>Für Normtabellen entscheidend</strong>Aufbau, Maße, Fehlerregeln, Zeitnahme und Übungsbedingungen müssen standardisiert sein. Schon kleine Abweichungen können die Zeiten systematisch verändern.</div>
-        <button class="btn btn-secondary" data-open-modal style="margin-top:18px">Historische Einordnung öffnen</button>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <b>Straight Edge Media</b><br />Wiener Koordinationsparcours · Unterrichts- und Prüfmaterial
-  </footer>
-
-  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Vergrößerte Aufbau-Grafik">
-    <button class="close" data-close aria-label="Schließen">×</button>
-    <img src="wkp-originalaufbau-warwitz.png" alt="Vergrößerter Originalaufbau des Wiener Koordinationsparcours nach Warwitz" />
-  </div>
-
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-panel">
-      <button class="close" data-close aria-label="Schließen">×</button>
-      <div class="section-kicker">Historie & Forschung</div>
-      <h2 id="modal-title">Entwicklung und wissenschaftliche Einordnung</h2>
-      <h3>Wer entwickelte den WKP?</h3>
-      <p>Der Wiener Koordinationsparcours wurde von Siegbert Warwitz entwickelt. Die ersten Arbeiten entstanden 1964/65 am Institut für Psychologie und Sportwissenschaft der Universität Wien. Ziel war ein ökonomischer, handhabbarer Test für komplexe koordinative Leistungsfähigkeit.</p>
-      <h3>Wie wurde er normiert?</h3>
-      <p>Die veröffentlichten Normtafeln beruhen auf mehreren Jahrgängen männlicher und weiblicher Schülerinnen und Schüler sowie zusätzlichen Gruppen von Sportstudierenden. Die Erhebungen wurden über viele Jahre erweitert; die später publizierten Vergleichsdaten stammen überwiegend aus den 1970er Jahren.</p>
-      <h3>Wie gut ist der Test gesichert?</h3>
-      <ul>
-        <li>Retest-Reliabilität in den berichteten Untersuchungen: etwa r = .87 bis .93.</li>
-        <li>Split-Half-Reliabilität: etwa r = .85 bis .89.</li>
-        <li>Zusammenhänge mit Sportlehrerurteilen: etwa r = .62 bis .79.</li>
-        <li>Zusammenhang mit einem Hindernisparcours: etwa r = .61.</li>
-      </ul>
-      <p>Diese Werte sprechen für eine gute praktische Verwendbarkeit. Sie ersetzen jedoch keine aktuelle Normierungsstudie, wenn heutige Abiturjahrgänge bewertet werden sollen.</p>
-      <h3>Was ist bei der Interpretation zu beachten?</h3>
-      <p>Der WKP misst keine isolierte Einzelfähigkeit. Das Ergebnis entsteht aus dem Zusammenwirken mehrerer koordinativer Anforderungen, Bewegungserfahrung, Tempo, Kraftdosierung und technischer Sicherheit. Deshalb sind standardisierte Durchführung und eine klare Bezugsgruppe unverzichtbar.</p>
-      <div class="source-note">Grundlage: Warwitz, „Normentafeln zum Wiener Koordinationsparcours“, Lehrhilfen für den Sportunterricht 4/1982. Die Kennwerte sind der dort veröffentlichten Darstellung entnommen.</div>
-    </div>
-  </div>
-
-  <script>
+</div>
+<div class="video-meta">
+<p><strong>Wiener Koordinationsparcours</strong><br/>Demonstrationsvideo zur Ausführung und Reihenfolge der Stationen.</p>
+<div class="video-source">Quelle: Institut für Sportwissenschaft, Universität Bern · <a href="https://www.ispw.unibe.ch/studium/eignungstest/video_wiener_koordinationsparcours/index_ger.html" rel="noopener noreferrer" target="_blank">Originalseite aufrufen</a></div>
+</div>
+</div>
+<div class="video-note"><strong>Hinweis zur Verwendung:</strong> Das Video dient der Veranschaulichung des Bewegungsablaufs. Für Prüfung, Aufbau und spätere Normwerttabellen sind ausschließlich die auf dieser Seite ausgewiesenen Maße, Reihenfolgen und Durchführungsbestimmungen des Warwitz-Originalaufbaus verbindlich.</div>
+</section>
+<section class="section" id="einordnung">
+<div class="section-kicker">Fachliche Einordnung</div>
+<h2>Was prüft der WKP?</h2>
+<div class="grid-3">
+<article class="card"><h3>Komplexe Koordination</h3><p>Der Parcours verbindet Gleichgewicht, Orientierung, Rhythmisierung, Umstellung, Differenzierung und Reaktionsanforderungen in wechselnden Bewegungsaufgaben.</p></article>
+<article class="card"><h3>Handeln unter Zeitdruck</h3><p>Die Zeitmessung erhöht den Anforderungsdruck. Bewertet wird nicht nur das korrekte Lösen, sondern die sichere und zügige Bewältigung der gesamten Bewegungsfolge.</p></article>
+<article class="card"><h3>Vielseitige Bewegungserfahrung</h3><p>Rollen, Drehen, Balancieren, Springen, Slalomrollen und Klettern verlangen eine schnelle Anpassung an unterschiedliche Geräte und Bewegungsrichtungen.</p></article>
+</div>
+</section>
+<section class="section evidence">
+<div class="evidence-box">
+<div class="section-kicker" style="color:#8fc0ff">Wissenschaftliche Absicherung</div>
+<h3>Für einen schulischen Koordinationstest gut dokumentiert</h3>
+<p>Warwitz berichtet über eine große Normierungsstichprobe und mehrere Gütekriterien. Die Befunde sprechen für eine brauchbare Zuverlässigkeit und eine sinnvolle inhaltliche Validierung des Tests.</p>
+<div class="metrics">
+<div class="metric"><strong>N = 3.462</strong><span>veröffentlichte Normstichprobe</span></div>
+<div class="metric"><strong>r = .87–.93</strong><span>Retest-Reliabilität</span></div>
+<div class="metric"><strong>r = .85–.89</strong><span>Split-Half-Reliabilität</span></div>
+<div class="metric"><strong>r = .62–.79</strong><span>Zusammenhang mit Lehrerurteilen</span></div>
+</div>
+</div>
+<div class="card">
+<h3>Methodische Grenze</h3>
+<p>Der WKP ist ein komplexer Leistungstest. Die gemessene Zeit hängt auch von Übungserfahrung, Gerätevertrautheit, Beweglichkeit und Schnelligkeit ab. Eine reine „Koordinationsnote“ ist daher eine Vereinfachung.</p>
+<div class="notice" style="margin-top:18px"><strong>Für Normtabellen entscheidend</strong>Aufbau, Maße, Fehlerregeln, Zeitnahme und Übungsbedingungen müssen standardisiert sein. Schon kleine Abweichungen können die Zeiten systematisch verändern.</div>
+<button class="btn btn-secondary" data-open-modal="" style="margin-top:18px">Historische Einordnung öffnen</button>
+</div>
+</section>
+</main>
+<footer><div aria-label="Straight Edge Media" class="footer-logo">
+<svg aria-hidden="true" role="img" viewbox="0 0 124 84" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 18h32l7 7h27l-9 9H43l-7-7H14z" fill="#15233b"></path>
+<path d="M50 39h37l9 9H59z" fill="#0870df"></path>
+<text fill="#15233b" font-family="Arial, sans-serif" font-size="12" font-weight="800" text-anchor="middle" x="62" y="58">STRAIGHT</text>
+<text fill="#0870df" font-family="Arial, sans-serif" font-size="12" font-weight="800" text-anchor="middle" x="62" y="70">EDGE</text>
+<text fill="#5c708c" font-family="Arial, sans-serif" font-size="7" font-weight="700" letter-spacing="2" text-anchor="middle" x="62" y="80">MEDIA</text>
+</svg></div><div>© 2026 Straight Edge Media</div><div>Wiener Koordinationsparcours · Unterrichts- und Prüfmaterial</div><span class="footer-version">v 1.3.0</span></footer>
+<div aria-label="Vergrößerte Aufbau-Grafik" aria-modal="true" class="lightbox" role="dialog">
+<button aria-label="Schließen" class="close" data-close="">×</button>
+<img alt="Vergrößerter Originalaufbau des Wiener Koordinationsparcours nach Warwitz" src="wkp-originalaufbau-warwitz.png"/>
+</div>
+<div aria-labelledby="modal-title" aria-modal="true" class="modal" role="dialog">
+<div class="modal-panel">
+<button aria-label="Schließen" class="close" data-close="">×</button>
+<div class="section-kicker">Historie &amp; Forschung</div>
+<h2 id="modal-title">Entwicklung und wissenschaftliche Einordnung</h2>
+<h3>Wer entwickelte den WKP?</h3>
+<p>Der Wiener Koordinationsparcours wurde von Siegbert Warwitz entwickelt. Die ersten Arbeiten entstanden 1964/65 am Institut für Psychologie und Sportwissenschaft der Universität Wien. Ziel war ein ökonomischer, handhabbarer Test für komplexe koordinative Leistungsfähigkeit.</p>
+<h3>Wie wurde er normiert?</h3>
+<p>Die veröffentlichten Normtafeln beruhen auf mehreren Jahrgängen männlicher und weiblicher Schülerinnen und Schüler sowie zusätzlichen Gruppen von Sportstudierenden. Die Erhebungen wurden über viele Jahre erweitert; die später publizierten Vergleichsdaten stammen überwiegend aus den 1970er Jahren.</p>
+<h3>Wie gut ist der Test gesichert?</h3>
+<ul>
+<li>Retest-Reliabilität in den berichteten Untersuchungen: etwa r = .87 bis .93.</li>
+<li>Split-Half-Reliabilität: etwa r = .85 bis .89.</li>
+<li>Zusammenhänge mit Sportlehrerurteilen: etwa r = .62 bis .79.</li>
+<li>Zusammenhang mit einem Hindernisparcours: etwa r = .61.</li>
+</ul>
+<p>Diese Werte sprechen für eine gute praktische Verwendbarkeit. Sie ersetzen jedoch keine aktuelle Normierungsstudie, wenn heutige Abiturjahrgänge bewertet werden sollen.</p>
+<h3>Was ist bei der Interpretation zu beachten?</h3>
+<p>Der WKP misst keine isolierte Einzelfähigkeit. Das Ergebnis entsteht aus dem Zusammenwirken mehrerer koordinativer Anforderungen, Bewegungserfahrung, Tempo, Kraftdosierung und technischer Sicherheit. Deshalb sind standardisierte Durchführung und eine klare Bezugsgruppe unverzichtbar.</p>
+<div class="source-note">Grundlage: Warwitz, „Normentafeln zum Wiener Koordinationsparcours“, Lehrhilfen für den Sportunterricht 4/1982. Die Kennwerte sind der dort veröffentlichten Darstellung entnommen.</div>
+</div>
+</div>
+<script>
     const lightbox = document.querySelector('.lightbox');
     const modal = document.querySelector('.modal');
 
@@ -317,6 +501,22 @@
         document.body.style.overflow = '';
       }
     });
-  </script>
+  
+
+    document.querySelectorAll('[data-norm-tab]').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('[data-norm-tab]').forEach(t => {
+          const active = t === tab;
+          t.classList.toggle('active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        document.querySelectorAll('.norm-panel').forEach(panel => {
+          const active = panel.id === tab.dataset.normTab;
+          panel.classList.toggle('active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+</script>
 </body>
 </html>
